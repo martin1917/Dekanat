@@ -5,8 +5,6 @@ namespace InterfaceLaba1.Command.Common;
 
 public class WhoamiCommand : BaseCommand
 {
-    public override string Name => "Whoami";
-
     public override string Description => "узнать свою роль";
 
     public override List<Argument> Arguments => new();

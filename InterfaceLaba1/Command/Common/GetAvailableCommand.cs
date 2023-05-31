@@ -5,8 +5,6 @@ namespace InterfaceLaba1.Command.Common;
 
 public class GetAvailableCommand : BaseCommand
 {
-    public override string Name => "GetAvailableCommands";
-
     public override string Description => "получить комманды доступные для текущей роли";
 
     public override List<Argument> Arguments => new();
@@ -33,7 +31,7 @@ public class GetAvailableCommand : BaseCommand
         }
 
         var role = ctx.CurrentUser.Role;
-        PermittedActivities.Get(role).Activities
-            .ForEach(act => Console.WriteLine($"  * {act}"));
+        PermittedActivities.Get(role).TypesCommand
+            .ForEach(act => Console.WriteLine($"  * {act.Name[..^"Command".Length]}"));
     }
 }

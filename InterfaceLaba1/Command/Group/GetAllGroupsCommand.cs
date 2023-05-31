@@ -5,8 +5,6 @@ namespace InterfaceLaba1.Command.Base.Command.Group;
 
 class GetAllGroupsCommand : BaseCommand
 {
-    public override string Name => "GetAllGroups";
-
     public override string Description => "Получить все группы";
 
     public override List<Argument> Arguments => new();
@@ -30,7 +28,7 @@ class GetAllGroupsCommand : BaseCommand
 
         var currentRole = ctx.CurrentUser.Role;
 
-        if (!PermittedActivities.Get(currentRole).Activities.Contains(TypeCommand.GetAllGroups))
+        if (!PermittedActivities.Get(currentRole).TypesCommand.Contains(GetType()))
         {
             Console.WriteLine($"Данная комманда не разрешена вашей роли ({currentRole})");
             return;

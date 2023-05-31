@@ -5,9 +5,6 @@ namespace InterfaceLaba1.Command.Base.Command.Group;
 
 class GetGroupCommand : BaseCommand
 {
-    public override string Name => "G" +
-        "etGroup";
-
     public override string Description => "получить информацию о группе";
 
     public override List<Argument> Arguments => new()
@@ -34,7 +31,7 @@ class GetGroupCommand : BaseCommand
 
         var currentRole = ctx.CurrentUser.Role;
 
-        if (!PermittedActivities.Get(currentRole).Activities.Contains(TypeCommand.GetGroup))
+        if (!PermittedActivities.Get(currentRole).TypesCommand.Contains(GetType()))
         {
             Console.WriteLine($"Данная комманда не разрешена вашей роли ({currentRole})");
             return;

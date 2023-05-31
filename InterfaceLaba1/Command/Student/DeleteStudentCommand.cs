@@ -5,8 +5,6 @@ namespace InterfaceLaba1.Command.Base.Command.Student;
 
 class DeleteStudentCommand : BaseCommand
 {
-    public override string Name => "DeleteStudent";
-
     public override string Description => "Удалить данные о студенте";
 
     public override List<Argument> Arguments => new()
@@ -34,7 +32,7 @@ class DeleteStudentCommand : BaseCommand
 
         var currentRole = ctx.CurrentUser.Role;
 
-        if (!PermittedActivities.Get(currentRole).Activities.Contains(TypeCommand.DeleteStudent))
+        if (!PermittedActivities.Get(currentRole).TypesCommand.Contains(GetType()))
         {
             Console.WriteLine($"Данная комманда не разрешена вашей роли ({currentRole})");
             return;
