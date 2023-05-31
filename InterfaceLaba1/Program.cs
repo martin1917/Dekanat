@@ -11,14 +11,20 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        // фейк БД с учетками
         var credentials = new List<Credentials>()
         {
             new Credentials {Login = "student", Password = "123", Role = Role.Student},
             new Credentials {Login = "clerk", Password = "123", Role = Role.Clerk},
         };
+
+        // Контекст программы (хранит текущего аутентифицированного юзера)
         var ctx = new MyContext();
+
+        // фейк БД с группами
         var dbGroups = new List<GroupModel>();
 
+        // регистрация поддерживаемых команд
         var commands = new List<BaseCommand>()
         {
             new AddGroupCommand(ctx, dbGroups),
@@ -39,12 +45,14 @@ public class Program
             new GetAvailableCommand(ctx)
         };
 
+        // Начальный вывод
         Console.WriteLine(
             "Help - справка по всем коммандам\n" +
             "Help [command] - справка по камманде\n" +
             "q - выход из программы\n" +
             "---");
 
+        // цикл обработки
         while (true)
         {
             Console.Write("\n> ");

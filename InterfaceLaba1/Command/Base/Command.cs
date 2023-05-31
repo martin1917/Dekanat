@@ -13,12 +13,17 @@ public abstract class BaseCommand
         var args = Arguments.Select(a => $"[{a.Name}]");
         if (Arguments.Any())
         {
-            return $"{Description}\n  ==> {Name} {string.Join(" ", args)}\n\t* {string.Join("\n\t* ", Arguments)}";
+            return 
+                $"{Description}\n" + 
+                $"  ==> {Name} {string.Join(" ", args)}\n" + 
+                $"\t* {string.Join("\n\t* ", Arguments)}";
 
         }
         else
         {
-            return $"{Description}\n  ==> {Name} {string.Join(" ", args)}";
+            return 
+                $"{Description}\n" + 
+                $"  ==> {Name} {string.Join(" ", args)}";
         }
     }
 }
