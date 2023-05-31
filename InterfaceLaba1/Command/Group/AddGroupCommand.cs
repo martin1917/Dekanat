@@ -5,7 +5,6 @@ namespace InterfaceLaba1.Command.Base.Command.Group;
 
 public class AddGroupCommand : BaseCommand
 {
-    public override string Name => "AddGroup";
     public override string Description => "Добавление учебной группы";
     public override List<Argument> Arguments => new()
     {
@@ -32,7 +31,8 @@ public class AddGroupCommand : BaseCommand
 
         var currentRole = ctx.CurrentUser.Role;
 
-        if (!PermittedActivities.Get(currentRole).Activities.Contains(TypeCommand.AddGroup))
+
+        if (!PermittedActivities.Get(currentRole).TypesCommand.Contains(GetType()))
         {
             Console.WriteLine($"Данная комманда не разрешена вашей роли ({currentRole})");
             return;

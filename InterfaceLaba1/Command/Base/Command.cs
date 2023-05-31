@@ -2,7 +2,7 @@
 
 public abstract class BaseCommand
 {
-    public abstract string Name { get; }
+    public virtual string Name => GetType().Name[..^"Command".Length];
     public abstract string Description { get; }
     public abstract List<Argument> Arguments { get; }
 

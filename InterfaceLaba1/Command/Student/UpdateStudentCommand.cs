@@ -5,8 +5,6 @@ namespace InterfaceLaba1.Command.Base.Command.Student;
 
 class UpdateStudentCommand : BaseCommand
 {
-    public override string Name => "UpdateStudent";
-
     public override string Description => "обновление данных о студенте";
 
     public override List<Argument> Arguments => new()
@@ -38,7 +36,7 @@ class UpdateStudentCommand : BaseCommand
 
         var currentRole = ctx.CurrentUser.Role;
 
-        if (!PermittedActivities.Get(currentRole).Activities.Contains(TypeCommand.UpdateStudent))
+        if (!PermittedActivities.Get(currentRole).TypesCommand.Contains(GetType()))
         {
             Console.WriteLine($"Данная комманда не разрешена вашей роли ({currentRole})");
             return;

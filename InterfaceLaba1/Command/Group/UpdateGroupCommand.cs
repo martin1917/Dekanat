@@ -5,8 +5,6 @@ namespace InterfaceLaba1.Command.Base.Command.Group;
 
 class UpdateGroupCommand : BaseCommand
 {
-    public override string Name => "UpdateGroup";
-
     public override string Description => "Обновление данных о группе";
 
     public override List<Argument> Arguments => new()
@@ -35,7 +33,7 @@ class UpdateGroupCommand : BaseCommand
 
         var currentRole = ctx.CurrentUser.Role;
 
-        if (!PermittedActivities.Get(currentRole).Activities.Contains(TypeCommand.UpdateGroup))
+        if (!PermittedActivities.Get(currentRole).TypesCommand.Contains(GetType()))
         {
             Console.WriteLine($"Данная комманда не разрешена вашей роли ({currentRole})");
             return;

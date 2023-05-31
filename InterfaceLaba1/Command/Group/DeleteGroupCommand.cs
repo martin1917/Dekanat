@@ -5,9 +5,6 @@ namespace InterfaceLaba1.Command.Base.Command.Group;
 
 class DeleteGroupCommand : BaseCommand
 {
-    public override string Name => "D" +
-        "eleteGroup";
-
     public override string Description => "Удаление группы";
 
     public override List<Argument> Arguments => new()
@@ -34,7 +31,7 @@ class DeleteGroupCommand : BaseCommand
 
         var currentRole = ctx.CurrentUser.Role;
 
-        if (!PermittedActivities.Get(currentRole).Activities.Contains(TypeCommand.DeleteGroup))
+        if (!PermittedActivities.Get(currentRole).TypesCommand.Contains(GetType()))
         {
             Console.WriteLine($"Данная комманда не разрешена вашей роли ({currentRole})");
             return;

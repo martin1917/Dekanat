@@ -7,8 +7,6 @@ public class LogoutCommand : BaseCommand
 {
     private readonly MyContext ctx;
 
-    public override string Name => "Logout";
-
     public override string Description => "выйти из учетной записи";
 
     public override List<Argument> Arguments => new();

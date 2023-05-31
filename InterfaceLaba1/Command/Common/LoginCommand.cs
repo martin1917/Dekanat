@@ -5,8 +5,6 @@ namespace InterfaceLaba1.Command.Common;
 
 public class LoginCommand : BaseCommand
 {
-    public override string Name => "Login";
-
     public override string Description => "аутентификация";
 
     public override List<Argument> Arguments => new()
