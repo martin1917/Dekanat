@@ -17,12 +17,10 @@ class UpdateStudentCommand : BaseCommand
         new Argument(name: "new_birthday", description: "новый день рождения"),
     };
 
-    private readonly MyContext ctx;
     private readonly List<GroupModel> groups;
 
-    public UpdateStudentCommand(MyContext ctx, List<GroupModel> groups)
+    public UpdateStudentCommand(MyContext ctx, List<GroupModel> groups) : base(ctx)
     {
-        this.ctx = ctx;
         this.groups = groups;
     }
 

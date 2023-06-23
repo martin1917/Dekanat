@@ -7,14 +7,10 @@ class GetAllGroupsCommand : BaseCommand
 {
     public override string Description => "Получить все группы";
 
-    public override List<Argument> Arguments => new();
-
-    private readonly MyContext ctx;
     private readonly List<GroupModel> groups;
 
-    public GetAllGroupsCommand(MyContext ctx, List<GroupModel> groups)
+    public GetAllGroupsCommand(MyContext ctx, List<GroupModel> groups) : base(ctx)
     {
-        this.ctx = ctx;
         this.groups = groups;
     }
 

@@ -12,12 +12,10 @@ public class AddGroupCommand : BaseCommand
         new Argument(name: "year", description: "год образования группы")
     };
 
-    private readonly MyContext ctx;
     private readonly List<GroupModel> groups;
 
-    public AddGroupCommand(MyContext ctx, List<GroupModel> groups)
+    public AddGroupCommand(MyContext ctx, List<GroupModel> groups) : base(ctx)
     {
-        this.ctx = ctx;
         this.groups = groups;
     }
 

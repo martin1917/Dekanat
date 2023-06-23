@@ -13,12 +13,10 @@ class DeleteStudentCommand : BaseCommand
         new Argument(name: "student_id", description: "идентификатор студента")
     };
 
-    private readonly MyContext ctx;
     private readonly List<GroupModel> groups;
 
-    public DeleteStudentCommand(MyContext ctx, List<GroupModel> groups)
+    public DeleteStudentCommand(MyContext ctx, List<GroupModel> groups) : base(ctx)
     {
-        this.ctx = ctx;
         this.groups = groups;
     }
 

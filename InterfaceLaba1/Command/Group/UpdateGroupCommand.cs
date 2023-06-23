@@ -14,12 +14,10 @@ class UpdateGroupCommand : BaseCommand
         new Argument(name: "new_year", description: "Новый год для группы"),
     };
 
-    private readonly MyContext ctx;
     private readonly List<GroupModel> groups;
 
-    public UpdateGroupCommand(MyContext ctx, List<GroupModel> groups)
+    public UpdateGroupCommand(MyContext ctx, List<GroupModel> groups) : base(ctx)
     {
-        this.ctx = ctx;
         this.groups = groups;
     }
 

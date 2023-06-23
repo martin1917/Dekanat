@@ -5,15 +5,11 @@ namespace InterfaceLaba1.Command.Common;
 
 public class LogoutCommand : BaseCommand
 {
-    private readonly MyContext ctx;
-
     public override string Description => "выйти из учетной записи";
 
-    public override List<Argument> Arguments => new();
-
-    public LogoutCommand(MyContext ctx)
+    public LogoutCommand(MyContext ctx) : base(ctx)
     {
-        this.ctx = ctx;
+
     }
 
     public override void Execute(List<string> args)

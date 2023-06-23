@@ -7,13 +7,9 @@ public class WhoamiCommand : BaseCommand
 {
     public override string Description => "узнать свою роль";
 
-    public override List<Argument> Arguments => new();
-
-    private readonly MyContext ctx;
-
-    public WhoamiCommand(MyContext ctx)
+    public WhoamiCommand(MyContext ctx) : base(ctx)
     {
-        this.ctx = ctx;
+
     }
 
     public override void Execute(List<string> args)

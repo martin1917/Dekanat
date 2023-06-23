@@ -16,12 +16,10 @@ class AddStudentCommand : BaseCommand
         new Argument(name: "birthday", description: "Дата рождения"),
     };
 
-    private readonly MyContext ctx;
     private readonly List<GroupModel> groups;
 
-    public AddStudentCommand(MyContext ctx, List<GroupModel> groups)
+    public AddStudentCommand(MyContext ctx, List<GroupModel> groups) : base(ctx)
     {
-        this.ctx = ctx;
         this.groups = groups;
     }
 

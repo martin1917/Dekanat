@@ -13,12 +13,10 @@ public class LoginCommand : BaseCommand
         new Argument(name: "password", description: "пароль"),
     };
 
-    private readonly MyContext ctx;
     private readonly List<Credentials> credentials;
 
-    public LoginCommand(MyContext ctx, List<Credentials> credentials)
+    public LoginCommand(MyContext ctx, List<Credentials> credentials) : base(ctx)
     {
-        this.ctx = ctx;
         this.credentials = credentials;
     }
 

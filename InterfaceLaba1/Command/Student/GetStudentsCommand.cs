@@ -12,12 +12,10 @@ class GetStudentsCommand : BaseCommand
         new Argument(name: "group_name", description: "Имя группы")
     };
 
-    private readonly MyContext ctx;
     private readonly List<GroupModel> groups;
 
-    public GetStudentsCommand(MyContext ctx, List<GroupModel> groups)
+    public GetStudentsCommand(MyContext ctx, List<GroupModel> groups) : base(ctx)
     {
-        this.ctx = ctx;
         this.groups = groups;
     }
 

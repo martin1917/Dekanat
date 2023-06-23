@@ -12,12 +12,10 @@ class GetGroupCommand : BaseCommand
         new Argument(name: "group_name", description: "Название группы")
     };
 
-    private readonly MyContext ctx;
     private readonly List<GroupModel> groups;
 
-    public GetGroupCommand(MyContext ctx, List<GroupModel> groups)
+    public GetGroupCommand(MyContext ctx, List<GroupModel> groups) : base(ctx)
     {
-        this.ctx = ctx;
         this.groups = groups;
     }
 

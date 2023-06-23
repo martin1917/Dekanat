@@ -7,13 +7,10 @@ public class GetAvailableCommand : BaseCommand
 {
     public override string Description => "получить комманды доступные для текущей роли";
 
-    public override List<Argument> Arguments => new();
 
-    private readonly MyContext ctx;
-
-    public GetAvailableCommand(MyContext ctx)
+    public GetAvailableCommand(MyContext ctx) : base(ctx)
     {
-        this.ctx = ctx;
+
     }
 
     public override void Execute(List<string> args)
